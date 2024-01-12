@@ -88,7 +88,7 @@ const roleSchemaValidation = {
         errorMessage:'role should not be empty'
     },
     isIn:{
-        options:[['restaurantOwner','guest']],
+        options:[['admin','restaurantOwner','guest']],
         errorMessage:'not a valid role'
     }
 }

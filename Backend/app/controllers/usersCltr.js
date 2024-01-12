@@ -18,7 +18,13 @@ usersCltr.register = async(req,res)=>{
         const encryptedPassword = await bcrypt.hash(user.password,salt)
         user.password = encryptedPassword
         const savedUser = await user.save()
-        console.log('saved user ',savedUser);
+        const userCount=await User.countDocuments()
+       
+        if(userCount==0){
+            return user.role=='admin'
+        }
+        await user.save()
+        
         return res.json(savedUser)
         
 
